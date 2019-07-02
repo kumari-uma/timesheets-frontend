@@ -1,0 +1,37 @@
+  <hr>
+  <div style="overflow:scroll">
+  <table  class="table table-striped table-bordered" id="myTable">
+     <thead>
+    <tr class="mani">
+      <th>Timesheet ID</th>
+      <th>Project Name</th>
+      <th>Employee ID</th>
+      <th>Bill Date</th>
+      <th>Task Type</th>
+      <th>Billed Hours</th>
+      <th>Approved Employee ID</th>
+      <th>Task Description</th>
+      <th>Is Approved
+ 
+      </th>
+  
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let x of timesheet_data" class="content" class="adit">
+      <td>{{x.timesheetid}}</td> 
+        <td >{{x.projectid}}</td>
+          <td  class="adit2">{{x.emp_id}}</td>
+            <td>{{x.bill_date}}</td>
+              <td> {{x.task_type}}</td>
+                <td> {{x.billed_hours}}</td>
+                  <td > {{x.approved_by_emp_id}}</td>
+                    <td> {{x.task_description}}</td>
+                      <td>{{x.isapproved}}</td> 
+
+    </tr>
+    </tbody>
+    </table>
+    </div>
+ 
+ 

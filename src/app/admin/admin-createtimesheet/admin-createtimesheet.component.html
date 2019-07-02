@@ -1,0 +1,65 @@
+<div class="container">
+  <form [formGroup]="registerTimesheet">
+    <div class="form-group">
+      <label for="timesheet_id1">Timesheet ID : -</label>
+
+      <input type="number" formControlName="timesheet_id" class="form-control" id="timesheet_id1"
+        aria-describedby="nameHelp" placeholder="Enter Timesheet id" />
+
+    </div>
+    <div class="form-group">
+      <label for="projectid1">Project ID</label>
+      <input type="number" formControlName="project_id" class="form-control" id="projectid1" aria-describedby="nameHelp"
+        placeholder="Enter project id" />
+
+    </div>
+
+    <div class="form-group">
+      <label for="emp_id1">Employee ID</label>
+      <input type="text" formControlName="emp_id" class="form-control" id="emp_id1"
+        placeholder="Enter the Employee ID" />
+    </div>
+
+    <div class="form-group">
+      <label for="bill_date1">Enter Bill date</label>
+      <input type="date" formControlName="bill_date" class="form-control" id="bill_date1"
+        placeholder="Enter the bill date" />
+    </div>
+
+
+    <div class="form-group">
+      <label for="role1">Select task type</label>
+      <select class="form-control" formControlName="task_type" id="role1">
+        <option *ngFor="let rr of Roles" [value]="rr.value">{{rr.role}}</option>
+      </select>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="billed_hours1">Enter billed hours</label>
+      <input type="number" formControlName="billed_hours" class="form-control" id="billed_hours1"
+        aria-describedby="nameHelp" placeholder="Enter hours" />
+    </div>
+
+    <div class="form-group">
+      <label for="task_desc1">Enter task description</label>
+      <input type="text" formControlName="task_description" class="form-control" id=" task_desc1"
+        aria-describedby="nameHelp" placeholder="Task description" />
+
+    </div>
+
+ 
+    <div class="form-group">
+      <label for="app_emp1">Approved by employee ID</label>
+      <input type="email" formControlName="app_emp" class="form-control" id="app_emp1" aria-describedby="nameHelp"
+        placeholder=" employee ID" />
+
+    </div>
+
+
+    <button type="submit" (click)="update_timesheets()" id="update_timesheet" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>

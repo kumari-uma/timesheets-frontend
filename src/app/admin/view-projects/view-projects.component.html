@@ -1,0 +1,33 @@
+ <hr>
+ <div style="overflow-x: scroll;">
+  <table class="table table-striped table-bordered" id="myTable">
+    <thead>
+
+    <tr>
+      <th>PROJECT ID</th>
+      <th>Project Name</th>
+      <th> Manager Employee ID</th>
+      <th>Start Date</th>
+      <th>End date</th>
+      <th>Billed Assets</th>
+      <th>Budget</th> 
+          <th>action</th>
+ 
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let x of data1" class="content">
+      <td>{{x.projectid}}</td>
+      <td>{{x.projectname}}</td>
+      <td>{{x.manager_emp_id}}</td>
+      <td>{{x.startdate}}</td>
+      <td> {{x.enddate}}</td>
+      <td> {{x.billed_assets}}</td>
+      <td> {{x.budget}}</td>
+              <td><i class="fa fa-pencil-square" aria-hidden="true"></i>
+                  </td>
+</tr>
+</tbody> 
+
+  </table> 
+  </div>

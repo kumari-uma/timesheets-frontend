@@ -1,0 +1,32 @@
+<div class="cont">
+  <div class="tab_header ">
+    <ul class="nav nav-pills" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" (click)="vendorinfo()">
+          <h6 >About</h6>
+        </a>
+      </li>&nbsp;&nbsp;&nbsp;
+      <li>
+<div class="dropdown" class="nav-item">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+    aria-haspopup="true" aria-expanded="false" style="height:3.4vw;"  >
+    Timesheets
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"  (click)="view()"  >View</a>
+    <a class="dropdown-item" (click)="edit()" >Edit/Create</a> 
+        <a class="dropdown-item" (click)="approve()">Approve</a>
+  </div>
+</div>
+        </li>
+ 
+
+    </ul>
+  </div>
+</div>
+
+<div class="tab_body">
+
+  <router-outlet></router-outlet>
+  <br>
+</div>

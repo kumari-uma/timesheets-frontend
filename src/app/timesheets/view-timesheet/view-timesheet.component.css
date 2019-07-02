@@ -1,0 +1,18 @@
+#myTable_filter input {
+  border-radius: 5px !important;
+  background: red !important;
+}
+.mani{
+    width:50vw;
+    height: 1vw;
+        line-height: 1; 
+        font-size: 0.9rem;
+
+}
+.adit2{
+    word-break: break-all;
+}
+.adit{
+            font-size: 0.8rem;
+                    line-height: 1; 
+}

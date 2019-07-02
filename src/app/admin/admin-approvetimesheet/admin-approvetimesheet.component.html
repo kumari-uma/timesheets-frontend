@@ -1,0 +1,35 @@
+  <hr>
+<div class="vendor" style="overflow-x:scroll">
+  <table class="table table-hover" id="myTable">
+<thead>
+    <tr>
+      <th>Timesheet ID</th>
+      <th>Project Name</th>
+      <th>Employee ID</th>
+      <th>Bill Date</th>
+      <th>Task Type</th>
+      <th>Billed Hours</th>
+      <th>Approved Employee ID</th>
+      <th>Task Description</th>
+      <th>Is Approved</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let x of approve_data;let i=index">
+      <td>{{x.timesheetid}}</td>
+      <td>{{x.projectid}}</td>
+      <td>{{x.emp_id}}</td>
+      <td>{{x.bill_date}}</td>
+      <td> {{x.task_type}}</td>
+      <td> {{x.billed_hours}}</td>
+      <td> {{x.approved_by_emp_id}}</td>
+      <td> {{x.task_description}}</td>
+      <td> 
+      <input type="radio" (click)="addTags($event,x)" name="approval1" value="Y" /> A
+      <input type="radio" (click)="addTags($event,x)" name="approval1" value="N" /> NA
+      </td>
+</tbody>
+  </table>
+
+</div>

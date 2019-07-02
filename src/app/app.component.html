@@ -1,0 +1,38 @@
+ 
+<router-outlet></router-outlet>
+<!--
+
+
+  To get the token
+
+URI
+----
+POST https://login.microsoftonline.com/e4e34038-ea1f-4882-b6e8-ccd776459ca0/oauth2/v2.0/token
+
+Headers
+--------
+Content-Type:application/x-www-form-urlencoded
+
+Body
+--------
+tenant:e4e34038-ea1f-4882-b6e8-ccd776459ca0
+client_id:1c4a7f67-c0ef-4b28-b7ba-ca624db636de
+scope:https://graph.microsoft.com/.default
+grant_type:client_credentials
+client_secret:x:vetes]I1imKU:6GJglt?gdK7pHRjv2
+
+----------------------------------------------------------------------------------
+
+
+To get users:
+
+URI
+----
+GET https://graph.microsoft.com/v1.0/users/
+
+Headers
+--------
+Authorization: Bearer {received token}
+
+
+-->

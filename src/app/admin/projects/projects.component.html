@@ -1,0 +1,59 @@
+<div class="container">
+  <form [formGroup]="registerproject">
+    <div class="form-group">
+      <label for="PROJECTID1">PROJECTID : -</label>
+
+      <input type="number" formControlName="PROJECTID" class="form-control" id="PROJECTID1"
+        aria-describedby="nameHelp" placeholder="Enter Project id" />
+
+    </div>
+    <div class="form-group">
+
+      <label for="PROJECTNAME1">Project name</label>
+      <input type="text" formControlName="PROJECTNAME" class="form-control" id="PROJECTNAME1" aria-describedby="nameHelp"
+        placeholder="Enter project name" />
+
+    </div>
+
+    <div class="form-group">
+      <label for="MANAGER_EMP_ID1">Manager Employee ID</label>
+      <input type="text" formControlName="MANAGER_EMP_ID" class="form-control" id="MANAGER_EMP_ID1"
+        placeholder="Enter the Manager Employee ID" />
+    </div>
+
+    <div class="form-group">
+      <label for="STARTDATE1">Enter Start date</label>
+      <input type="date" formControlName="STARTDATE" class="form-control" id="STARTDATE1"
+        placeholder="Enter the Start date" />
+    </div>
+
+    <div class="form-group">
+      <label for="ENDDATE1">Enter Enddate</label>
+      <input type="date" formControlName="ENDDATE" class="form-control" id="ENDDATE1"
+        placeholder="Enter the end date" />
+    </div>
+
+
+ 
+
+    <div class="form-group">
+      <label for="BILLED_ASSETS1">Enter Billed Assets</label>
+      <input type="number" formControlName="BILLED_ASSETS" class="form-control" id="BILLED_ASSETS1"
+        aria-describedby="nameHelp" placeholder="Enter Billed Assets" />
+    </div>
+
+    <div class="form-group">
+      <label for="BUDGET1">Enter budget</label>
+      <input type="number" formControlName="BUDGET" class="form-control" id="BUDGET1"
+        aria-describedby="nameHelp" placeholder="Enter budget" />
+
+    </div>
+
+ 
+
+
+    <button type="submit" (click)="update_projects()" id="update_timesheet" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>
