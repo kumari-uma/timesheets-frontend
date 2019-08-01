@@ -1,12 +1,9 @@
+
+
+<hr>
 <div class="container">
-  <form [formGroup]="registerproject">
-    <div class="form-group">
-      <label for="PROJECTID1">PROJECTID : -</label>
-
-      <input type="number" formControlName="PROJECTID" class="form-control" id="PROJECTID1"
-        aria-describedby="nameHelp" placeholder="Enter Project id" />
-
-    </div>
+  <form [formGroup]="registerproject"     style="margin-left: 15%;margin-right:15%;border:1px solid #d1d1d1;padding: 2%;">
+    
     <div class="form-group">
 
       <label for="PROJECTNAME1">Project name</label>
@@ -18,7 +15,7 @@
     <div class="form-group">
       <label for="MANAGER_EMP_ID1">Manager Employee ID</label>
       <input type="text" formControlName="MANAGER_EMP_ID" class="form-control" id="MANAGER_EMP_ID1"
-        placeholder="Enter the Manager Employee ID" />
+        placeholder="Enter the Manager Employee ID"  />
     </div>
 
     <div class="form-group">
@@ -30,7 +27,7 @@
     <div class="form-group">
       <label for="ENDDATE1">Enter Enddate</label>
       <input type="date" formControlName="ENDDATE" class="form-control" id="ENDDATE1"
-        placeholder="Enter the end date" />
+        placeholder="Enter the end date"  />
     </div>
 
 
@@ -49,11 +46,24 @@
 
     </div>
 
- 
+    <div class="form-group">
+      <label for="PARTNER1">Enter Partner</label>
+      <input type="text" formControlName="PARTNER" class="form-control" id="PARTNER1" aria-describedby="nameHelp"
+        placeholder="Enter Partner" />
+    
+    </div>
+
+<div class="form-group">
+  <label for="SAlES1">Enter Sales Person ID</label>
+  <input type="email" formControlName="SALES" class="form-control" id="SAlES1" aria-describedby="nameHelp"
+    placeholder="Enter Sales Person ID "  />
+
+</div>
 
 
-    <button type="submit" (click)="update_projects()" id="update_timesheet" class="btn btn-primary">
+    <button type="submit"   [disabled]="!registerproject.valid" (click)="update_projects()" id="update_timesheet" class="btn btn-primary">
       Submit
     </button>
+    <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" if='!registerGoods.valid' [disabled]="!registerGoods.valid" (click)="createGoods()">Create</button> -->
   </form>
 </div>

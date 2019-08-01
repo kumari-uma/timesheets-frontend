@@ -18,9 +18,11 @@
     "@angular/http": "^6.0.2",
     "@angular/platform-browser": "^6.0.2",
     "@angular/platform-browser-dynamic": "^6.0.2",
+    "@angular/pwa": "^0.8.9",
     "@angular/router": "^6.0.2",
     "@types/jquery": "^3.3.30",
     "angular-6-datatable": "^0.8.0",
+    "angular-ng-autocomplete": "^1.1.13",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "datatables.net": "^1.10.19",
@@ -32,7 +34,8 @@
     "ngx-pagination": "^4.0.0",
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.5.2",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.8.26",
+    "@angular/service-worker": "^6.0.2"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.2",

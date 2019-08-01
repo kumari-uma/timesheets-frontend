@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core'; 
-import { MsAdalAngular6Service } from "microsoft-adal-angular6";
-import * as $ from "jquery";
+import { Component, OnInit } from "@angular/core";
+import { MsAdalAngular6Service } from "microsoft-adal-angular6"; 
 import { DataService } from "../data.service";
-
 
 @Component({
   selector: "app-about",
@@ -19,15 +17,15 @@ export class AboutComponent implements OnInit {
   emp_id;
 
   constructor(
-    private adalSvc: MsAdalAngular6Service,
+    public adalSvc: MsAdalAngular6Service,
     private data: DataService
   ) {
     console.log(this.adalSvc.userInfo.userName);
   }
 
   ngOnInit() {
-    this.data.getUsers().subscribe(data => {
-      console.log(data)
+    this.data.getEmployees().subscribe(data => {
+      console.log(data);
       this.emp_id = data[0].column_data;
       this.name = data[1].column_data;
       this.title = data[2].column_data;
@@ -35,16 +33,8 @@ export class AboutComponent implements OnInit {
       this.manager = data[4].column_data;
       this.manager_id = data[5].column_data;
       this.asset_type = data[6].column_data;
- 
+
       console.log(data);
-    }); 
- 
-  }
-
-  firstClick() {
-    this.data.firstClick();
-  }
-  edit_data(){
-
+    });
   }
 }

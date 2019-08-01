@@ -1,30 +1,50 @@
+<br>
+<div>
+<h6 style="text-align: center;"><label for="emp_id1">Employee ID - {{this.adalSvc.userInfo.userName}}</label></h6>
+
+</div>
+<hr>
 <div class="container">
-  <form [formGroup]="registerTimesheet">
-    <div class="form-group">
+  <form [formGroup]="registerTimesheet" style="margin-left: 15%;margin-right:15%;border:1px solid #d1d1d1;padding: 2%;">
+    <!-- <div class="form-group">
       <label for="timesheet_id1">Timesheet ID : -</label>
+   
+            <input type="number" formControlName="timesheet_id" class="form-control" id="timesheet_id1" aria-describedby="nameHelp"
+              placeholder="Enter Timesheet id" />
 
-      <input type="number" formControlName="timesheet_id" class="form-control" id="timesheet_id1"
-        aria-describedby="nameHelp" placeholder="Enter Timesheet id" />
+    </div> -->
 
-    </div>
-    <div class="form-group">
-      <label for="projectid1">Project ID</label>
-      <input type="number" formControlName="project_id" class="form-control" id="projectid1" aria-describedby="nameHelp"
-        placeholder="Enter project id" />
-
-    </div>
+   
+    <br>
 
     <div class="form-group">
-      <label for="emp_id1">Employee ID</label>
-      <input type="text" formControlName="emp_id" class="form-control" id="emp_id1"
-        placeholder="Enter the Employee ID" />
+      <label for="projectid1">Project Name</label>
+      <input type="text" name="project_name" formControlName="project_id" class="form-control"
+        aria-describedby="nameHelp" placeholder="Enter project Name" (blur)="getprojectID($event)" id="searchBar" list="projectID" />
+
+      <datalist id="projectID">
+    <option *ngFor="let x of projectID_data" value={{x?.PROJECTNAME}} id="{{x?.PROJECTID}}">
+      </datalist>
     </div>
 
     <div class="form-group">
-      <label for="bill_date1">Enter Bill date</label>
-      <input type="date" formControlName="bill_date" class="form-control" id="bill_date1"
-        placeholder="Enter the bill date" />
+      <label for="bill_date1">Bill Date </label>
+      <input type="date" formControlName="bill_date" class="form-control" id="bill_date1" aria-describedby="nameHelp"
+        placeholder="Enter bill_date " />
+      <!-- <label for="bill_date1">Bill Date -{{this.day + "/" + this.month + "/" + this.year}}</label> -->
     </div>
+
+
+
+    <!-- <datalist id="some-list">
+  <option value="first_value" data-id="1">Some Description</option>
+  <option value="another_value" data-id="2">Another Thing Here</option>
+  <option value="first_second_third" data-id="3">More Stuff</option>
+</datalist>
+
+<input list="some-list"> -->
+
+
 
 
     <div class="form-group">
@@ -49,16 +69,14 @@
 
     </div>
 
- 
-    <div class="form-group">
-      <label for="app_emp1">Approved by employee ID</label>
-      <input type="email" formControlName="app_emp" class="form-control" id="app_emp1" aria-describedby="nameHelp"
-        placeholder=" employee ID" />
+    <!--   
+      <div class="form-group">
+        <label for="app_emp1">Approved by employee ID</label>
+        <input type="email" formControlName="app_emp" class="form-control" id="app_emp1"
+          aria-describedby="nameHelp" placeholder=" employee ID" />
+       </div> -->
 
-    </div>
-
-
-    <button type="submit" (click)="update_timesheets()" id="update_timesheet" class="btn btn-primary">
+    <button type="submit" [disabled]="!registerTimesheet .valid" style="display:block;margin: auto;" (click)="update_timesheets()" id="update_timesheet" class="btn btn-primary">
       Submit
     </button>
   </form>

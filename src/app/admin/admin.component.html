@@ -1,8 +1,16 @@
 <div class="cont">
   <div class="tab_header ">
-    <ul class="nav nav-pills" role="tablist">
+    <!-- <nav class="nav nav-brand">
+  
+      </nav> -->
+    <ul class="nav nav-pills" role="tablist" style="margin-right:0px;">
+      <!-- <li>
+        <nav class="nav nav-brand"  style="margin-right: 10px;">
+<img src="http://celebaltech.com/assets/images/newlogo1.png" alt="" width="140px;" height="40px">
+        </nav>
+      </li> -->
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="pill" (click)="admininfo()">
+        <a class="nav-link active " data-toggle="pill" (click)="admininfo()">
           <h6>About</h6>
         </a>
       </li>&nbsp;&nbsp;&nbsp;
@@ -14,7 +22,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" (click)="view_projects()">View</a>
-            <a class="dropdown-item" (click)="update_projects()">Edit/Create</a>
+            <a class="dropdown-item" (click)="update_projects()">Create</a>
  
           </div>
         </div>
@@ -34,7 +42,7 @@
     </ul>
   </div>
 </div>
-
+<br>
 <div class="tab_body">
 
   <router-outlet></router-outlet>

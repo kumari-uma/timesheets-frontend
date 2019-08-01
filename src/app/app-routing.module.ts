@@ -1,23 +1,23 @@
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from "@angular/router";
+import { NgModule } from "@angular/core";
 import { ViewTimesheetComponent } from "./timesheets/view-timesheet/view-timesheet.component";
 import { AdminInfoComponent } from "./admin/admin-info/admin-info.component";
-import { AuthenticationGuard } from 'microsoft-adal-angular6';
-import { AppComponent } from './app.component';
+import { AuthenticationGuard } from "microsoft-adal-angular6";
+import { AppComponent } from "./app.component";
 import { EmployeeComponent } from "./employee/employee.component";
 import { HeaderComponent } from "./header/header.component";
-import { LoginComponent } from "./login/login.component";
+
 import { AboutComponent } from "./about/about.component";
 import { TimesheetsComponent } from "./timesheets/timesheets.component";
 import { EditTimesheetComponent } from "./timesheets/edit-timesheet/edit-timesheet.component";
 import { AprrovalComponent } from "./timesheets/aprroval/aprroval.component";
-import { ProjectsComponent } from "./Admin/projects/projects.component";
+import { ProjectsComponent } from "./admin/projects/projects.component";
 import { AdminComponent } from "./admin/admin.component";
-import { ViewProjectsComponent } from "./Admin/view-projects/view-projects.component";
+import { ViewProjectsComponent } from "./admin/view-projects/view-projects.component";
 import { AdminViewtimesheetComponent } from "./admin/admin-viewtimesheet/admin-viewtimesheet.component";
 import { AdminCreatetimesheetComponent } from "./admin/admin-createtimesheet/admin-createtimesheet.component";
- import { AdminApprovetimesheetComponent } from "./admin/admin-approvetimesheet/admin-approvetimesheet.component";
-
+import { AdminApprovetimesheetComponent } from "./admin/admin-approvetimesheet/admin-approvetimesheet.component";
+import { AdminInfoEditComponent } from "./admin/admin-info-edit/admin-info-edit.component";
 
 const routes: Routes = [
   {
@@ -39,7 +39,6 @@ const routes: Routes = [
       { path: "approve", component: AprrovalComponent }
     ]
   },
-
   {
     path: "admin",
     component: AdminComponent,
@@ -51,6 +50,10 @@ const routes: Routes = [
       {
         path: "admin_info",
         component: AdminInfoComponent
+      },
+      {
+        path: "admin_EditInfo",
+        component: AdminInfoEditComponent
       },
       {
         path: "view_projects",
@@ -76,29 +79,18 @@ const routes: Routes = [
     pathMatch: "full",
     canActivate: [AuthenticationGuard]
   }
-]; 
+];
 @NgModule({
-    imports: [    
-      RouterModule.forRoot(routes),
-    ],
-    exports: [
-      RouterModule
-    ]
-  })
-  export class AppRoutingModule {
-
-
-
-   }
-   export const routingComponents = [
-            EmployeeComponent,
-            LoginComponent,
-            HeaderComponent,
-            AboutComponent,
-            TimesheetsComponent,
-            ViewTimesheetComponent,
-            EditTimesheetComponent,
-            AprrovalComponent,
-            ProjectsComponent,
-            ViewProjectsComponent
-          ];
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+export const routingComponents = [
+  EmployeeComponent,
+  HeaderComponent,
+  AboutComponent,
+  TimesheetsComponent,
+  ViewTimesheetComponent,
+  EditTimesheetComponent,
+  AprrovalComponent
+];

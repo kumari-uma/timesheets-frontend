@@ -20,10 +20,11 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.json"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css" ,
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -31,7 +32,7 @@
               "node_modules/datatables.net/js/jquery.dataTables.min.js",
               "node_modules/datatables.net-editor/js/dataTables.editor.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-               ]
+            ]
           },
           "configurations": {
             "production": {
@@ -49,7 +50,8 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "serviceWorker": true
             }
           }
         },
@@ -80,10 +82,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": ["src/assets/jquery-3.3.1.js"],
+            "scripts": [
+              "src/assets/jquery-3.3.1.js"
+            ],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.json"
             ]
           }
         },

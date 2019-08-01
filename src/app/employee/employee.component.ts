@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { DataService } from "../data.service";
 import {
   FormBuilder,
   FormControl,
@@ -15,47 +16,52 @@ import * as $ from "jquery";
   styleUrls: ["./employee.component.css"]
 })
 export class EmployeeComponent implements OnInit {
+  name;
+  team;
+  title;
+  manager_id;
+  manager;
+  asset_type;
+  emp_id;
+  rowdata = {};
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder,
-    private adalSvc: MsAdalAngular6Service
+    public adalSvc: MsAdalAngular6Service,
+    private data: DataService
   ) {
+    this.data.getEmployees().subscribe(data => {
+      this.emp_id = data[0].column_data;
+      this.name = data[1].column_data;
+      this.title = data[2].column_data;
+      this.team = data[3].column_data;
+      this.manager = data[4].column_data;
+      this.manager_id = data[5].column_data;
+      this.asset_type = data[6].column_data;
+    });
     console.log(this.adalSvc.userInfo.userName);
   }
-  registerUser = this.fb.group({
-    employee_id: [
-      this.adalSvc.userInfo.userName,
-      [Validators.required, Validators.pattern("[^ @]*@[^ @]*")]
-    ],
-    name: ["", [Validators.required]],
 
-    Title: ["", [Validators.required]],
+  ngOnInit() {}
 
-    Team: ["", Validators.required],
-    manager: ["", [Validators.required]],
-    manager_id: ["", [Validators.required]],
-    asset_type: ["", [Validators.required]]
-  });
-  ngOnInit() {
-    
-  }
- 
-  update_emp_details(){
-var rowdata = this.registerUser.value;
-    
- console.log("data",rowdata)
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3000/employee/employee",
-      data: rowdata,
-      success: function(data) {
-        console.log(data);
-      },
-      error: function(result) {
-        console.log(result);
-      }
-
-});
+  update_emp_details() {
+    this.rowdata["emp_id"] = this.emp_id;
+    this.rowdata["name"] = this.name;
+    this.rowdata["team"] = this.team;
+    this.rowdata["title"] = this.title;
+    this.rowdata["manager"] = this.manager;
+    this.rowdata["manager_id"] = this.manager_id;
+    this.rowdata["asset_type"] = this.asset_type;
+    console.log("data", this.rowdata);
+    this.data.update_emp_details(this.rowdata).subscribe(data => {
+      console.log(data);
+    });
+    this.name = "";
+    this.team = "";
+    this.title = "";
+    this.manager = "";
+    this.manager_id = "";
+    this.asset_type = "";
   }
 }

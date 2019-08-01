@@ -3,8 +3,11 @@ import {
   FormBuilder,
   FormControl,
   FormsModule,
-  Validators
+  Validators,
+  FormGroup
 } from "@angular/forms";
+
+import { DataService } from "../../data.service"; 
 import { ActivatedRoute, Router } from "@angular/router";
 
 import * as $ from "jquery";
@@ -17,18 +20,35 @@ export class ProjectsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private data: DataService
   ) {}
 
+  // registerproject: FormGroup;
+  // prepare(){
   registerproject = this.fb.group({
-    PROJECTID: [""],
-    PROJECTNAME: [""],
-    MANAGER_EMP_ID: [""],
-    STARTDATE: [""],
-    ENDDATE: [""],
-    BILLED_ASSETS: [""],
-    BUDGET: [""]
+    PROJECTNAME: ["", Validators.required],
+    MANAGER_EMP_ID: ["", Validators.required],
+    STARTDATE: ["", Validators.required],
+    ENDDATE: ["", Validators.required],
+    BILLED_ASSETS: ["", Validators.required],
+    BUDGET: ["", Validators.required],
+    PARTNER: ["", Validators.required],
+    SALES: ["", Validators.required]
   });
+  // }
+  after_submit(){
+  this.registerproject = this.fb.group({
+    PROJECTNAME: ["", Validators.required],
+    MANAGER_EMP_ID: ["", Validators.required],
+    STARTDATE: ["", Validators.required],
+    ENDDATE: ["", Validators.required],
+    BILLED_ASSETS: ["", Validators.required],
+    BUDGET: ["", Validators.required],
+    PARTNER: ["", Validators.required],
+    SALES: ["", Validators.required]
+  });
+  }
 
   ngOnInit() {}
 
@@ -37,16 +57,10 @@ export class ProjectsComponent implements OnInit {
 
     console.log("data", rowdata);
 
-    $.ajax({
-      type: "POST",
-      url: "http://localhost:3000/project/project",
-      data: rowdata,
-      success: function(data) {
-        console.log(data);
-      },
-      error: function(result) {
-        console.log(result);
-      }
+    this.data.CreateNewProject(rowdata).subscribe(data => {
+      // this.projectID_data = data;
+      console.log(data);
     });
+    this.after_submit();
   }
 }

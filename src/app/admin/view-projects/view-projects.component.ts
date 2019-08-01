@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from "@angular/core";
 import { DataService } from "../../data.service";
+
 var editor;
 //  import * as $ from "jquery";
 import "jquery";
@@ -19,12 +20,35 @@ export class ViewProjectsComponent implements OnInit {
     this.data.getProjects().subscribe(data => {
       this.data1 = data;
       console.log(data);
-
+      let th = this;
       $(document).ready(function() {
         $("#myTable").dataTable({
           responsive: true
         });
       });
+
+      
+
+            $("table").on(
+              "click",
+              "td .fa.fa-minus-square",
+              function(e) {
+                e.preventDefault();
+ 
+
+                var $row = $(this).closest("tr"); // Find the row
+                var $text = $row.find(".project_id").text(); // Find the text
+
+                console.log($text);
+                $(this)
+                  .closest("tr")
+                  .remove();
+
+                th.data
+                  .removeProjects($text)
+                  .subscribe(data => {});
+              }
+            );
 
       $(document).ready(function() {
         var table;
@@ -34,7 +58,7 @@ export class ViewProjectsComponent implements OnInit {
         ) {
           $(this)
             .removeClass()
-            .addClass("fa fa-envelope-o");
+            .addClass("fa  fa-floppy-o");
           var $row = $(this)
             .closest("tr")
             .off("mousedown");
@@ -56,44 +80,46 @@ export class ViewProjectsComponent implements OnInit {
         //   e.stopPropagation();
         // });
 
-        $("#myTable").on("mousedown.save", "i.fa.fa-envelope-o", function(e) {
-          var edited_data = [];
-          var i=0
+        $("#myTable").on("mousedown.save", "i.fa.fa-floppy-o", function(e) {
+          var edited_data = {};
+        
           $(this)
             .removeClass()
             .addClass("fa fa-pencil-square");
           var $row = $(this).closest("tr");
+        
           var $tds = $row
-            .find("td")
+            .find("td") 
             .not(":first")
             .not(":last");
 
+
+            var $project_id = $row.find("td");
+            var project_id = $project_id[0].textContent;
+             console.log($project_id[0].textContent);
+
           $.each($tds, function(i, el) {
+              
             var txt = $(this)
               .find("input")
-              .val();
-
-            edited_data.push(i,txt);
-                i++;
+              .val(); 
+            edited_data[i]=(txt);
+            
             $(this).html(txt);
+          });  
+          edited_data["project_id"]=project_id;
+         
+          th.data.EditProject(edited_data).subscribe(data => {
+          
+            console.log(data);
           }); 
-          $.ajax({
-            type: "POST",
-            url: "http://localhost:3000/project/project",
-            data: JSON.stringify(edited_data),
-            success: function(data) {
-              console.log(data);
-            },
-            error: function(result) {
-              console.log(result);
-            }
-          });
-          console.log("save", edited_data[0][0]);
         });
       });
-      // $("#myTable").on("mousedown", "#selectbasic", function(e) {
-      //   e.stopPropagation();
-      // });
+ 
+    });
+    $(document).ready(function() {
+      $("i.fa-minus-square").popover({ trigger: "hover" });
+        $("i.fa-pencil-square").popover({ trigger: "hover" });
     });
   }
 }

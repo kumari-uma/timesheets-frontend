@@ -1,83 +1,68 @@
-<!-- <p>
-  Employee ID - 
-</p>
-<button class="btn btn-primary" (click)="get_data()">Edit</button> -->
+<div class="container" style="margin-left:5%;margin-right:5%">
 
-
-<div class="vendor">
-  <div>
-    <h5 style="text-align: center;">Welcome Employee</h5>
-  </div> 
   <div class="row info">
     <div class="col-md">
       <div class="field-group mt-5">
         <div class="field-header">
-          <span class="h5 mr-3">Name -{{name}} </span>
+          <span class="h5 mr-4">Name - {{name}}</span>
         </div>
- 
       </div>
     </div>
     <div class="col-md">
       <div class="field-group mt-5">
         <div class="field-header">
-          <span class="h5 mr-3">Employee ID - </span>
+          <span class="h5 mr-3">Employee ID - {{emp_id}} </span>
         </div>
-        <div class="field-info">{{this.adalSvc.userInfo.userName}}</div>
       </div>
     </div>
   </div>
-    <div class="row info">
-      <div class="col-md">
-        <div class="field-group mt-5">
-          <div class="field-header">
-            <span class="h5 mr-3">Team - </span>
-          </div>
-          <div class="field-info">{{team}}</div>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="field-group mt-5">
-          <div class="field-header">
-            <span class="h5 mr-3">Title - </span>
-          </div>
-          <div class="field-info">{{ title}}</div>
+  <div class="row info">
+    <div class="col-md">
+      <div class="field-group mt-5">
+        <div class="field-header">
+          <span class="h5 mr-4">Team - {{team}}</span>
         </div>
       </div>
     </div>
-
-      <div class="row info">
-        <div class="col-md">
-          <div class="field-group mt-5">
-            <div class="field-header">
-              <span class="h5 mr-3">Manager - </span>
-            </div>
-            <div class="field-info">{{manager}}</div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="field-group mt-5">
-            <div class="field-header">
-              <span class="h5 mr-3">Asset Type - </span>
-            </div>
-            <div class="field-info">{{asset_type}}</div>
-          </div>
+    <div class="col-md">
+      <div class="field-group mt-5">
+        <div class="field-header">
+          <span class="h5 mr-4">Title - {{ title}}</span>
         </div>
       </div>
-      <div class="row info">
-        <div class="col-md">
-          <div class="field-group mt-5">
-            <div class="field-header">
-              <span class="h5 mr-3">Manager Id- </span>
-            </div>
-            <div class="field-info">{{manager_id}}</div>
-          </div>
-        </div>
-      </div> 
-    <br>
+    </div>
+  </div>
 
+  <div class="row info">
+    <div class="col-md">
+      <div class="field-group mt-5">
+        <div class="field-header">
+          <span class="h5 mr-4">Manager - {{manager}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <div class="field-group mt-5">
+        <div class="field-header">
+          <span class="h5 mr-4">Asset Type - {{asset_type}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row info">
+    <div class="col-md">
+      <div class="field-group mt-5">
+        <div class="field-header">
+          <span class="h5 mr-4">Manager Id - {{manager_id}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
   <div>
- 
-    <button class="btn btn-primary"    [routerLink]="['/header/employee']" >Edit Details</button>
-     
+
+    <button class="btn btn-primary" style="margin-left: 35vw"  [routerLink]="['/header/employee']">Edit
+      Details</button>
+
   </div> 
- 

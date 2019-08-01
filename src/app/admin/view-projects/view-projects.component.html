@@ -17,14 +17,16 @@
     </thead>
     <tbody>
     <tr *ngFor="let x of data1" class="content">
-      <td>{{x.projectid}}</td>
+      <td class="project_id">{{x.projectid}}</td>
       <td>{{x.projectname}}</td>
       <td>{{x.manager_emp_id}}</td>
       <td>{{x.startdate}}</td>
       <td> {{x.enddate}}</td>
       <td> {{x.billed_assets}}</td>
       <td> {{x.budget}}</td>
-              <td><i class="fa fa-pencil-square" aria-hidden="true"></i>
+              <td><i class="fa fa-pencil-square" aria-hidden="true" rel="popover" title="Edit" data-content="content"></i>
+                &nbsp;
+                <i class="fa fa-minus-square" aria-hidden="true" rel="popover" title="Delete" data-content="content"></i>
                   </td>
 </tr>
 </tbody> 
