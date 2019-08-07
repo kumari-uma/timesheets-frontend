@@ -89,11 +89,20 @@ getProjectID(pp){
 }
 
   update_timesheets() {
+    
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
   
     var rowdata = this.registerTimesheet.value;
     let th = this;
       rowdata["project_id"] =this.prjID;
     rowdata["emp_id"]=this.adalSvc.userInfo.userName;
+       rowdata["last_updated"] = date;
     rowdata["approved1"]="N";
     // $("input[id=projectID]").blur(function() {
     //   pp = $(this).val();

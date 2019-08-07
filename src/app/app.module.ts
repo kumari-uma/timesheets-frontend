@@ -59,7 +59,7 @@ import { environment } from '../environments/environment';
     MsAdalAngular6Module.forRoot({
       tenant: "e4e34038-ea1f-4882-b6e8-ccd776459ca0",
       clientId: "1c4a7f67-c0ef-4b28-b7ba-ca624db636de",
-      redirectUri: "https://celebaltimesheets.azurewebsites.net/",
+      redirectUri: "https://celebaltimesheets.azurewebsites.net",
       endpoints: {
         "https://login.microsoftonline.com/":
           "e4e34038-ea1f-4882-b6e8-ccd776459ca0/saml2"

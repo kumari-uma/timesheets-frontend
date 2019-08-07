@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" [formGroup]="registerEmployee">
   <br />
   <div class="form-group" style="text-align: center">
     <h6>
@@ -19,7 +19,10 @@
           placeholder="Enter Name"
           [(ngModel)]="name"
           name="name"
+          required minlength="4"
+          
         />
+ 
       </div>
 
       <div class="form-group">
@@ -88,7 +91,7 @@
           style="  margin:auto;
   display:block;"
           id="update_table"
-          class="btn btn-primary"
+          class="btn btn-primary" 
         >
           Submit
         </button>
@@ -96,3 +99,10 @@
     </div>
   </form>
 </div>
+<!--timesheets button mobile
+create timesheet date (today)
+project name then projectID
+-->
+<!-- model in tables with + click 
+confirm on delete
+-->

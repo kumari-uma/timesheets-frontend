@@ -23,6 +23,8 @@ export class AppComponent {
       var token = this.adalSvc
         .acquireToken("https://graph.microsoft.com")
         .subscribe((token: string) => {
+          // console.log(token);
+
           for (let i = 0; i < admin_data.length; i++) {
             if (this.adalSvc.userInfo.userName == admin_data[i]) {
               console.log(this.adalSvc.userInfo.userName);

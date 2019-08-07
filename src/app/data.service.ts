@@ -17,6 +17,12 @@ export class DataService {
     this.emp_id = this.adalSvc.userInfo.userName;
   }
   //This function is used to get the details of the loggedIN employee
+ token = this.adalSvc
+        .acquireToken("https://graph.microsoft.com")
+        .subscribe((token: string) => {
+          console.log("fghjk"+token);
+      })
+
   getEmployees() {
     return this.http.post(this.url + "employee/emp", {
       data: this.emp_id
@@ -86,5 +92,8 @@ export class DataService {
     return this.http.post(this.url + "project/remove", {
       data: data1
     });
+  }
+  getTask_types(){
+    return this.http.get(this.url + "timesheet/task_types")
   }
 }

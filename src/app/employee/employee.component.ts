@@ -24,6 +24,14 @@ export class EmployeeComponent implements OnInit {
   asset_type;
   emp_id;
   rowdata = {};
+  registerEmployee = this.fb.group({
+    name: ["", [Validators.required]],
+    team: ["", [Validators.required]],
+    title: ["", [Validators.required]],
+    manager_id: ["", [Validators.required]],
+    manager: ["", [Validators.required]],
+    asset_type: ["", [Validators.required]]
+  });
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -56,12 +64,7 @@ export class EmployeeComponent implements OnInit {
     console.log("data", this.rowdata);
     this.data.update_emp_details(this.rowdata).subscribe(data => {
       console.log(data);
-    });
-    this.name = "";
-    this.team = "";
-    this.title = "";
-    this.manager = "";
-    this.manager_id = "";
-    this.asset_type = "";
+    }); 
+    this.router.navigate(["/header/about"]);
   }
 }
